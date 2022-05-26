@@ -1,0 +1,19 @@
+{
+  "files": ["createUser.test.js"],
+  "virtualUserMultiplier": 1,
+  "customColumns": ["Type", "Name"],
+  "virtualUserSuites": [
+    {
+      "skip": false,
+      "identifier": "eventhos-integration-tests",
+      "files": [],
+      "variables": {
+        "webUrl": "http://localhost:2112",
+        "apiUrl": "http://localhost:2111",
+        "pcIP": "${MOCK_SERVER_DOMAIN}",
+        "serverPort": "${TEST_SERVER_PORT}",
+        "adminPassword": "${ADMIN_PASSWORD}"
+      }
+    }
+  ]
+}
