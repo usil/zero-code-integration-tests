@@ -88,12 +88,16 @@ describe("Create role options works (007)", () => {
     );
 
     await secondOptions[1].click();
+    await seoHelpers.artificialWait(1000);
 
     const secondListOfItems = await dialog.findElements(
       By.css("mat-list-option")
     );
 
+    await seoHelpers.artificialWait(1000);
+
     for (const item of secondListOfItems) {
+      await seoHelpers.artificialWait(1000);
       await item.click();
     }
 
