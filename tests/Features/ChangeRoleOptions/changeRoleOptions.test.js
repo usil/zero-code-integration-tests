@@ -176,6 +176,6 @@ describe("Create role options works (007)", () => {
   });
 
   afterAll(async () => {
-    // await driver.quit();
+    await driver.quit();
   });
 });

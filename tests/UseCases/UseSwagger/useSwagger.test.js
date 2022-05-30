@@ -152,15 +152,15 @@ describe("Use UI to view swagger", () => {
 
     await driver.wait(until.titleIs("Swagger UI"), 10000);
 
-    const h3 = await driver.findElement(By.css(`h3[data-tag='${tableName}']`));
+    const h3 = await driver.wait(
+      until.elementLocated(By.css(`h3[data-tag='${tableName}']`), 10000)
+    );
 
     const h3Parent = await h3.findElement(By.xpath("./.."));
 
     const allSpans = await h3Parent.findElements(
       By.css(".no-margin .operation-tag-content > span")
     );
-
-    console.log(allSpans);
 
     const lockButton = await allSpans[0].findElement(
       By.css(".opblock .opblock-summary .authorization__btn")
