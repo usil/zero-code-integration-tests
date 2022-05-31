@@ -140,7 +140,7 @@ describe("Use UI to view swagger", () => {
 
     await driver.wait(
       async () => (await driver.getAllWindowHandles()).length === 2,
-      10000
+      5000
     );
 
     const windows = await driver.getAllWindowHandles();
@@ -150,11 +150,9 @@ describe("Use UI to view swagger", () => {
       }
     });
 
-    await driver.wait(until.titleIs("Swagger UI"), 10000);
+    await driver.wait(until.titleIs("Swagger UI"), 5000);
 
-    const h3 = await driver.wait(
-      until.elementLocated(By.css(`h3[data-tag='${tableName}']`), 10000)
-    );
+    const h3 = await driver.findElement(By.css(`h3[data-tag='${tableName}']`));
 
     const h3Parent = await h3.findElement(By.xpath("./.."));
 
@@ -169,7 +167,7 @@ describe("Use UI to view swagger", () => {
     await lockButton.click();
 
     const modal = await driver.wait(
-      until.elementLocated(By.css(".modal-ux"), 10000)
+      until.elementLocated(By.css(".modal-ux"), 5000)
     );
 
     const modalInput = await modal.findElement(By.css("input"));

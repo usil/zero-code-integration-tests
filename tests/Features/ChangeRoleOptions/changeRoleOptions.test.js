@@ -91,18 +91,22 @@ describe("Create role options works (007)", () => {
     await seoHelpers.artificialWait(1000);
 
     const secondListOfItems = await dialog.findElements(
-      By.css("mat-list-option")
+      By.css("mat-selection-list mat-list-option")
     );
 
     await seoHelpers.artificialWait(1000);
 
+    console.log(secondListOfItems.length);
+
     await dialog.click();
 
-    await secondListOfItems[0].click();
-    await secondListOfItems[1].click();
-    await secondListOfItems[2].click();
-    await secondListOfItems[3].click();
-    await secondListOfItems[4].click();
+    for (let index = 0; index < secondListOfItems.length; index++) {
+      const element = secondListOfItems[index];
+      await element.click();
+      await seoHelpers.artificialWait(500);
+    }
+
+    await seoHelpers.artificialWait(500);
 
     let nonCheckedCount = 0;
 
@@ -176,6 +180,6 @@ describe("Create role options works (007)", () => {
   });
 
   afterAll(async () => {
-    await driver.quit();
+    // await driver.quit();
   });
 });
