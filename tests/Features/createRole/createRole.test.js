@@ -90,7 +90,7 @@ describe("Create role (003)", () => {
 
     const listItems = await dialog.findElements(By.css("mat-list-option"));
 
-    await listItems[0].click();
+    await driver.executeScript("arguments[0].click();", listItems[0]);
 
     let checkedCount = 0;
 
