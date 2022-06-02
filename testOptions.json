@@ -8,11 +8,10 @@
       "identifier": "eventhos-integration-tests",
       "files": [],
       "variables": {
-        "webUrl": "http://localhost:2112",
+        "webUrl": "${ZERO_CODE_WEB_BASE_URL}",
         "apiUrl": "http://localhost:2111",
-        "pcIP": "${MOCK_SERVER_DOMAIN}",
-        "serverPort": "${TEST_SERVER_PORT}",
-        "adminPassword": "${ADMIN_PASSWORD}"
+        "adminPassword": "${ADMIN_PASSWORD}",
+        "DISPLAY": ":0"
       }
     }
   ]

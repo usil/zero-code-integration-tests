@@ -61,7 +61,7 @@ describe("Adds new table and refresh endpoints", () => {
 
     await button.click();
 
-    await seoHelpers.artificialWait(3000);
+    await driver.sleep(3000);
 
     const insertValue = await resultTextArea.getAttribute("value");
 

@@ -90,29 +90,35 @@ describe("Create role options works (007)", () => {
     await secondOptions[secondOptions.length - 1].click();
     await seoHelpers.artificialWait(1000);
 
+
     const secondListOfItems = await dialog.findElements(
       By.css("mat-selection-list mat-list-option")
     );
-
     await seoHelpers.artificialWait(1000);
 
-    await dialog.click();
+    // await dialog.click();
+    await driver.executeScript('document.getElementsByTagName("mat-dialog-container")[0].scrollBy(0, 250);');
 
+    await driver.sleep(250)
+    // const checkboxes = await dialog.findElements(
+    //   By.css("mat-pseudo-checkbox")
+    // );
+    // for (let index = 0; index < checkboxes.length; index++) {
+    //  await driver.executeScript(`document.getElementsByClassName("mat-pseudo-checkbox")[${index}].click()`);
+    // }
     for (let index = 0; index < secondListOfItems.length; index++) {
       const element = secondListOfItems[index];
       await driver.executeScript("arguments[0].click();", element);
-      await seoHelpers.artificialWait(500);
+      await driver.sleep(250)
     }
 
-    await seoHelpers.artificialWait(500);
-
+    await driver.sleep(1000)
     let nonCheckedCount = 0;
 
     for (const item of secondListOfItems) {
       const selected = await item.getAttribute("aria-selected");
       if (selected === "true") nonCheckedCount++;
     }
-
     expect(nonCheckedCount).toBe(0);
 
     await updateButton.click();
