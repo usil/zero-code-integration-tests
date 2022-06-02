@@ -164,7 +164,7 @@ describe("Use UI to view swagger", () => {
       By.css(".opblock .opblock-summary .authorization__btn")
     );
 
-    await lockButton.click();
+    await driver.executeScript("arguments[0].click();", lockButton);
 
     const modal = await driver.wait(
       until.elementLocated(By.css(".modal-ux"), 5000)
