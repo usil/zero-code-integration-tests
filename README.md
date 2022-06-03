@@ -54,7 +54,7 @@ npm run test
 ```
 
 
-## Steps for Linux
+## Steps for Windows
 
 - https://github.com/usil/zero-code-integration-tests/wiki/Steps-for-Windows
 
